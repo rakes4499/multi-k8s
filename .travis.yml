@@ -2,11 +2,11 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build rakes4499/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t rakes4499/react-test -f ./client/Dockerfile.dev ./client
 script:
   - docker run -e CI=true rakes4499/react-test npm test
 after_success:
-  - docker build rakes4499/multi-nginx ./nginx
-  - docker build rakes4499/multi-worker ./worker
-  - docker build rakes4499/multi-server ./server
-  - docker build rakes4499/multi-client ./client
+  - docker build -t rakes4499/multi-nginx ./nginx
+  - docker build -t rakes4499/multi-worker ./worker
+  - docker build -t rakes4499/multi-server ./server
+  - docker build -t rakes4499/multi-client ./client
