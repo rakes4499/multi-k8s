@@ -10,3 +10,11 @@ after_success:
   - docker build -t rakes4499/multi-worker ./worker
   - docker build -t rakes4499/multi-server ./server
   - docker build -t rakes4499/multi-client ./client
+  # Log in the Docker hub
+  - echo "$Docker_pass" | docker login -u "$Docker_username" --password-stdin
+  # Take those images to Dockerhub
+  - docker push -t rakes4499/multi-nginx
+  - docker push	-t rakes4499/multi-worker
+  - docker push	-t rakes4499/multi-server
+  - docker push	-t rakes4499/multi-client
+  - docker push	-t rakes4499/multi-nginx:v1
