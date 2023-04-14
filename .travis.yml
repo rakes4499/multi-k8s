@@ -13,8 +13,8 @@ after_success:
   # Log in the Docker hub
   - echo "$Docker_pass" | docker login -u "$Docker_username" --password-stdin
   # Take those images to Dockerhub
-  - docker push -t rakes4499/multi-nginx
-  - docker push	-t rakes4499/multi-worker
-  - docker push	-t rakes4499/multi-server
-  - docker push	-t rakes4499/multi-client
-  - docker push	-t rakes4499/multi-nginx:v1
+  - docker push rakes4499/multi-nginx
+  - docker push	rakes4499/multi-worker
+  - docker push	rakes4499/multi-server
+  - docker push	rakes4499/multi-client
+  - docker push	rakes4499/multi-nginx:v1
